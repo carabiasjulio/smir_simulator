@@ -16,6 +16,9 @@ function [b_n_in_time, b_n_inverse_in_time] = ...
 %   b_n                 : (ncoeff x (b_n_len+1)) thresholded b_n (0..Nyquist)
 %   b_n_originals       : (ncoeff x (b_n_len+1)) original b_n (0..Nyquist)
 %   freqs_stft_filters  : (1 x (b_n_len+1)) frequency grid [Hz]
+% 
+% Author: Pedro Vera Candeas
+% Date: December 2025
 
     % Filtering radial function
     thresholds_order = ones(1,sh_order+1)*0.01;
