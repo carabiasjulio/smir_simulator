@@ -1,0 +1,68 @@
+# =======================================================
+# CONFIGURATION FOR THE SMIR GENERATOR (Impulse Responses)
+# =======================================================
+
+version: v1.2
+
+# --- FILE AND FOLDER PATHS ---
+rutas:
+# CSV file with SRIR information 
+  # csv_dir: /mnt/share/carabias/datasets/simulated/rirs/info
+  csv_dir: /Users/carabias/Development/smir_simulator/rirs/info
+
+  # Directory for SRIRs 
+  # rir_dir: /mnt/share/carabias/datasets/simulated/rirs
+  # srir_dir: /Users/carabias/Development/smir_simulator/rirs/rir
+  srir_dir: /Users/carabias/Development/smir_simulator/rirs/rir_clean
+  srir_type: 'clean'  # Type of SRIRs: 'clean' or 'reverb'
+  
+  # Directory for audio signals 
+  # audio_dir: /mnt/share/carabias/datasets/simulated/signals
+  audio_dir: /Users/carabias/Development/smir_simulator/signals
+  
+# --- General Parameters ---
+general:
+  c: 343                       # Speed of sound (m/s)
+  fs: 44100                    # Sampling frequency (Hz)
+  winlen: 2048                 # STFT window length
+
+
+# --- SMIR GENERATOR PARAMETERS ---
+rir_generator:
+  # Decomposition Parameters
+  N_harm: 20                   # Maximum number of spherical harmonics.
+  K: 1                         # Oversampling factor
+  
+  # Room and Acoustics Parameters
+  reflectionOrder: 10          # Maximum reflection order (default=-1)
+  t60: [0.2, 0.3, 0.4, 0.5]    # Reverberation times (in seconds)
+  room_width: [4.0, 8.0]       # Room width interval (in meters)
+  room_length: [5.0, 10.0]     # Room length interval (in meters)
+  room_height: [3.0, 4.0]      # Room height interval (in meters)
+  
+  # Source and Microphone Parameters
+  src_type: 'o'                # Source type: 'o' omnidirectional, 'd' dipole
+  src_dist: [0.5, 1.5]         # Source distance interval (m)
+  HP: 1                        # High-pass filter flag (1: enable, 0: disable)
+  npoints: 46                  # Number of points on the sphere
+
+# --- EIGENMIKE PARAMETERS ---
+eigenmike:
+  # Microphone values (substituted by constant values)
+  micType: 'rigid'   # Microphone type: 'open' or 'rigid'
+  mic_height: 1.3   # Height of the Eigenmike center (m)
+  w: 1             # en el MATLAB, hom.w=1 para el Eigenmike completo (sin grid)
+  # Position arrays (azimuth, inclination)
+  mic_r: 0.042   # Radius of the Eigenmike (m) - string to be evaluated
+  # Inclination angles of the Eigenmike microphones 
+  mic_el: [1.2043, 1.5708, 1.9373, 1.5708, 0.5585, 0.9599, 1.5708, 2.1817, 2.5831, 2.1817, 1.5708, 0.9599, 0.3665, 1.0123, 2.1118, 2.7751, 1.2043, 1.5708, 1.9373, 1.5708, 0.5585, 0.9599, 1.5708, 2.1817, 2.5831, 2.1817, 1.5708, 0.9599, 0.3665, 1.0123, 2.1293, 2.7751]
+  # Azimuth angles of the Eigenmike microphones
+  mic_az: [0, 0.5585, 0, 5.7247, 0, 0.7854, 1.2043, 0.7854, 0, 5.4978, 5.0789, 5.4978, 1.5882, 1.5708, 1.5708, 1.5533, 3.1416, 3.7001, 3.1416, 2.5831, 3.1416, 3.927, 4.3459, 3.927, 3.1416, 2.3562, 1.9373, 2.3562, 4.6949, 4.7124, 4.7124, 4.7298] 
+  # Gain values of the Eigenmike microphones
+  gain: [1, 0.841783705978144, 0.824422770634782, 1.07805634428050, 0.819368701472337, 0.934155064445381, 0.942818510614020, 0.876545989186322, 1.10264739127246, 0.848483639170549, 1.04461665900460, 0.936951042253091, 0.922256134152427, 1.04479150187472, 0.930715983737848, 1.27539079246131, 1.13043435730242, 1.16837435166048, 0.862191048272407, 0.861692088104175, 1.00844381347731, 0.754351026481360, 0.973011316700164, 0.781515901903590, 0.787410743970355, 0.735444383147764, 0.703536416735698, 0.738175096862642, 0.747236005060125, 0.758104189173352, 0.742033871663043, 1.02480445158795]
+           
+# --- HOA ENCODING PARAMETERS ---
+hoa_encoding:
+  sh_order: 6 # Spherical harmonic order
+  b_n_len: 2048 # Length of the radial filters
+  beamformer_order: 4 # Beamformer order (just for verification purposes)

@@ -1,0 +1,11 @@
+numpy
+glob
+scipy
+mat73
+matplotlib
+soundfile
+pyyaml
+tqdm
+dataclasses
+typing
+warnings
