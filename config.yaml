@@ -8,17 +8,17 @@ version: v1.2
 rutas:
 # CSV file with SRIR information 
   # csv_dir: /mnt/share/carabias/datasets/simulated/rirs/info
-  csv_dir: /Users/carabias/Development/smir_simulator/rirs/info
+  csv_dir: /Users/carabias/Documents/Github/smir_simulator/rirs/info
 
   # Directory for SRIRs 
   # rir_dir: /mnt/share/carabias/datasets/simulated/rirs
   # srir_dir: /Users/carabias/Development/smir_simulator/rirs/rir
-  srir_dir: /Users/carabias/Development/smir_simulator/rirs/rir_clean
+  srir_dir: /Users/carabias/Documents/Github/smir_simulator/rirs/rir_clean
   srir_type: 'clean'  # Type of SRIRs: 'clean' or 'reverb'
   
   # Directory for audio signals 
   # audio_dir: /mnt/share/carabias/datasets/simulated/signals
-  audio_dir: /Users/carabias/Development/smir_simulator/signals
+  audio_dir: /Users/carabias/Documents/Github/smir_simulator/signals
   
 # --- General Parameters ---
 general:
